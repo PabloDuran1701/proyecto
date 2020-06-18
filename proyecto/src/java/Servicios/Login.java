@@ -5,10 +5,7 @@
  */
 package servicios;
 
-import Model.dao.ServicioCliente;
-import Model.dao.ServicioUsuario;
-import Objetos.Usuario;
-import Objetos.cliente;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Optional;
