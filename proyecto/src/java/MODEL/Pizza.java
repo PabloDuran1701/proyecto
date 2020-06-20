@@ -5,6 +5,7 @@
  */
 package MODEL;
 
+import daos.ServicioPizza;
 import java.util.List;
 import org.json.JSONObject;
 
@@ -13,6 +14,10 @@ import org.json.JSONObject;
  * @author diego
  */
 public class Pizza {
+
+    public Pizza() {
+    }
+
     int ID;
     String Nombre;
     String tamano;
@@ -26,11 +31,11 @@ public class Pizza {
         this.Precio = Precio;
     }
 
-    public Pizza(String Nombre, String tamano, int Precio,List<Ingredientes> adicionales) {
+    public Pizza(String Nombre, String tamano, int Precio, List<Ingredientes> adicionales) {
         this.Nombre = Nombre;
         this.tamano = tamano;
         this.Precio = Precio;
-        this.Adicionales=adicionales;
+        this.Adicionales = adicionales;
     }
 
     public int getID() {
@@ -69,8 +74,8 @@ public class Pizza {
     public String toString() {
         return "Pizza{" + "ID=" + ID + ", Nombre=" + Nombre + ", tamano=" + tamano + ", Precio=" + Precio + '}';
     }
-    
-        public JSONObject toJSON() {
+
+    public JSONObject toJSON() {
         JSONObject r = new JSONObject();
         r.put("ID", getID());
         r.put("Nombre", getNombre());
@@ -78,5 +83,11 @@ public class Pizza {
         r.put("Precio", getPrecio());
         return r;
     }
-    
+
+    public String listaPizzasJSON() {
+        ServicioPizza g = new ServicioPizza();
+        ListaPizzas pizzas = new ListaPizzas(g.obtenerListaPizza());
+        return pizzas.toString();
+    }
+
 }

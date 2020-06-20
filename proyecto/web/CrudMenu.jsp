@@ -4,7 +4,7 @@
     Author     : Lenovo
 --%>
 
-<%@page import="Servicios.ListarPizzas"%>
+<%@page import="MODEL.Pizza"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
         <title>JSP Page</title>
         <script src="js/scripts.js" type="text/javascript"></script>
          <script type="text/javascript">
-            inicializarDatos(<%= new ListarPizzas().listaPizzasJSON()%>);
+            inicializarDatos(<%= new Pizza().listaPizzasJSON()%>);
         </script>
     </head>
 
