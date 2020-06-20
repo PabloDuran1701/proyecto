@@ -42,7 +42,7 @@ public class ListaPizzas implements Serializable {
         });
 
         JSONObject r = new JSONObject();
-        r.put("lista-productos", a);
+        r.put("lista-pizzas", a);
         return r;
     }
 
