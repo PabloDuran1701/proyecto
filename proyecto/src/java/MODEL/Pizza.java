@@ -6,6 +6,7 @@
 package MODEL;
 
 import java.util.List;
+import org.json.JSONObject;
 
 /**
  *
@@ -67,6 +68,15 @@ public class Pizza {
     @Override
     public String toString() {
         return "Pizza{" + "ID=" + ID + ", Nombre=" + Nombre + ", tamano=" + tamano + ", Precio=" + Precio + '}';
+    }
+    
+        public JSONObject toJSON() {
+        JSONObject r = new JSONObject();
+        r.put("ID", getID());
+        r.put("Nombre", getNombre());
+        r.put("Tamano", getTamano());
+        r.put("Precio", getPrecio());
+        return r;
     }
     
 }
