@@ -7,16 +7,23 @@ package MODEL;
 
 import java.util.List;
 
-/**
- *
- * @author diego
- */
+// ingresoUsuario.jsp
+//
+// EIF209 - Programación 4 – Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez 
+// 
+
 public class Pizza {
     int ID;
     String Nombre;
     String tamano;
     int Precio;
     List<Ingredientes> Adicionales;
+    List<Ingredientes> Ingredientes;
 
     public Pizza(int ID, String Nombre, String tamano, int Precio) {
         this.ID = ID;
@@ -25,11 +32,12 @@ public class Pizza {
         this.Precio = Precio;
     }
 
-    public Pizza(String Nombre, String tamano, int Precio,List<Ingredientes> adicionales) {
+    public Pizza(String Nombre, String tamano, int Precio,List<Ingredientes> adicionales,    List<Ingredientes> ingredientes ) {
         this.Nombre = Nombre;
         this.tamano = tamano;
         this.Precio = Precio;
         this.Adicionales=adicionales;
+        this.Ingredientes = ingredientes;
     }
 
     public int getID() {
