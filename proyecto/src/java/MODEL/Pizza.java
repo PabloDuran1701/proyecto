@@ -5,6 +5,8 @@
  */
 package MODEL;
 
+import java.util.List;
+
 /**
  *
  * @author diego
@@ -14,6 +16,7 @@ public class Pizza {
     String Nombre;
     String tamano;
     int Precio;
+    List<Ingredientes> Adicionales;
 
     public Pizza(int ID, String Nombre, String tamano, int Precio) {
         this.ID = ID;
@@ -22,10 +25,11 @@ public class Pizza {
         this.Precio = Precio;
     }
 
-    public Pizza(String Nombre, String tamano, int Precio) {
+    public Pizza(String Nombre, String tamano, int Precio,List<Ingredientes> adicionales) {
         this.Nombre = Nombre;
         this.tamano = tamano;
         this.Precio = Precio;
+        this.Adicionales=adicionales;
     }
 
     public int getID() {
@@ -64,7 +68,5 @@ public class Pizza {
     public String toString() {
         return "Pizza{" + "ID=" + ID + ", Nombre=" + Nombre + ", tamano=" + tamano + ", Precio=" + Precio + '}';
     }
-    
-    
     
 }
