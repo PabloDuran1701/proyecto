@@ -1,28 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package MODEL;
 
-import daos.ServicioPizza;
 import java.util.List;
-import org.json.JSONObject;
 
-/**
- *
- * @author diego
- */
+// ingresoUsuario.jsp
+//
+// EIF209 - Programación 4 – Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez 
+// 
+
 public class Pizza {
-
-    public Pizza() {
-    }
-
     int ID;
     String Nombre;
     String tamano;
     int Precio;
     List<Ingredientes> Adicionales;
+    List<Ingredientes> Ingredientes;
 
     public Pizza(int ID, String Nombre, String tamano, int Precio) {
         this.ID = ID;
@@ -31,11 +28,12 @@ public class Pizza {
         this.Precio = Precio;
     }
 
-    public Pizza(String Nombre, String tamano, int Precio, List<Ingredientes> adicionales) {
+    public Pizza(String Nombre, String tamano, int Precio,List<Ingredientes> adicionales,    List<Ingredientes> ingredientes ) {
         this.Nombre = Nombre;
         this.tamano = tamano;
         this.Precio = Precio;
-        this.Adicionales = adicionales;
+        this.Adicionales=adicionales;
+        this.Ingredientes = ingredientes;
     }
 
     public int getID() {
@@ -74,20 +72,8 @@ public class Pizza {
     public String toString() {
         return "Pizza{" + "ID=" + ID + ", Nombre=" + Nombre + ", tamano=" + tamano + ", Precio=" + Precio + '}';
     }
-
-    public JSONObject toJSON() {
-        JSONObject r = new JSONObject();
-        r.put("ID", getID());
-        r.put("Nombre", getNombre());
-        r.put("Tamano", getTamano());
-        r.put("Precio", getPrecio());
-        return r;
-    }
-
-    public String listaPizzasJSON() {
-        ServicioPizza g = new ServicioPizza();
-        ListaPizzas pizzas = new ListaPizzas(g.obtenerListaPizza());
-        return pizzas.toString();
-    }
-
+    
+    
+    
 }
+
