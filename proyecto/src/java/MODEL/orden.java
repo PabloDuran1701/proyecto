@@ -21,6 +21,14 @@ public class orden {
     List <Producto> producto;
     List <Ingredientes> ingredientes;
 
+    public orden(int ID, Date fecha, String estado, Usuario USU) {
+        this.ID = ID;
+        this.fecha = fecha;
+        this.estado = estado;
+        this.USU = USU;
+ 
+    }
+
     public orden(int ID, Date fecha, String estado, Usuario USU, List<Pizza> pizza, List<Producto> producto, List<Ingredientes> ingredientes) {
         this.ID = ID;
         this.fecha = fecha;
