@@ -37,7 +37,7 @@ function actualizarTabla() {
             {
                 var hilera = document.createElement("tr");
                 var celda = document.createElement("td");
-                var textoCelda = document.createTextNode("pizza.Id");
+                var textoCelda = document.createTextNode(pizza.id);
 
                 celda.appendChild(textoCelda);
                 hilera.appendChild(celda);

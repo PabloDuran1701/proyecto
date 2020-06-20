@@ -73,16 +73,16 @@ public class Pizza {
     }
 
     @Override
-    public String toString() {
-        return "Pizza{" + "ID=" + ID + ", Nombre=" + Nombre + ", tamano=" + tamano + ", Precio=" + Precio + '}';
+     public String toString() {
+        return toJSON().toString(4);
     }
-
+     
     public JSONObject toJSON() {
         JSONObject r = new JSONObject();
         r.put("id", getID());
         r.put("nombre", getNombre());
         r.put("tamano", getTamano());
-        r.put("precio", getPrrecio());
+        r.put("precio", getPrecio());
         return r;
     }
     
