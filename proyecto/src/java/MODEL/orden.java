@@ -8,10 +8,16 @@ package MODEL;
 import java.sql.Date;
 import java.util.List;
 
-/**
- *
- * @author diego
- */
+// ingresoUsuario.jsp
+//
+// EIF209 - Programación 4 – Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez 
+// 
+
 public class orden {
     int ID;
     Date fecha; 
