@@ -1,7 +1,8 @@
-
 package MODEL;
 
+import daos.ServicioPizza;
 import java.util.List;
+import org.json.JSONObject;
 
 // ingresoUsuario.jsp
 //
@@ -12,8 +13,11 @@ import java.util.List;
 // - 304990923 Jose Pablo Duran
 // - 116350565 Diego Pinto Gomez 
 // 
-
 public class Pizza {
+
+    public Pizza() {
+    }
+
     int ID;
     String Nombre;
     String tamano;
@@ -28,11 +32,11 @@ public class Pizza {
         this.Precio = Precio;
     }
 
-    public Pizza(String Nombre, String tamano, int Precio,List<Ingredientes> adicionales,    List<Ingredientes> ingredientes ) {
+    public Pizza(String Nombre, String tamano, int Precio, List<Ingredientes> adicionales, List<Ingredientes> ingredientes) {
         this.Nombre = Nombre;
         this.tamano = tamano;
         this.Precio = Precio;
-        this.Adicionales=adicionales;
+        this.Adicionales = adicionales;
         this.Ingredientes = ingredientes;
     }
 
@@ -72,8 +76,22 @@ public class Pizza {
     public String toString() {
         return "Pizza{" + "ID=" + ID + ", Nombre=" + Nombre + ", tamano=" + tamano + ", Precio=" + Precio + '}';
     }
+
+    public JSONObject toJSON() {
+        JSONObject r = new JSONObject();
+        r.put("id", getID());
+        r.put("nombre", getNombre());
+        r.put("tamano", getTamano());
+        r.put("precio", getPrrecio());
+        return r;
+    }
     
-    
-    
+        public String listaPizzasJSON() {
+        ServicioPizza g = new ServicioPizza();
+        ListaPizzas pizzas = new ListaPizzas(g.obtenerListaPizza());
+        return pizzas.toString();
+    }
+
+
 }
 
