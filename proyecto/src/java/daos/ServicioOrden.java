@@ -56,6 +56,7 @@ public class ServicioOrden {
         List<orden> r = new ArrayList<>();
         ServicioUsuario US = new ServicioUsuario();
         ServicioPizzaOrden SPO = new ServicioPizzaOrden();
+        ServicioAdicionales SA = new ServicioAdicionales(); 
         try (Connection cnx = obtenerConexion();
                 Statement stm = cnx.createStatement();
                 ResultSet rs = stm.executeQuery(IMEC_Orden.LISTAR.obtenerComando())) {
