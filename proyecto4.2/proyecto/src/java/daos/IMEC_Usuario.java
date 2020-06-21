@@ -1,7 +1,8 @@
 package daos;
 
 public enum IMEC_Usuario {
-    INSERTAR("INSERT INTO usuario (id, tipo, password, nombre, apellido1, direccion, telefono) VALUES (?,?,?,?,?,?,?); "),
+    INSERTAR("INSERT INTO usuario (id, tipo, password, nombre, "
+            + "apellido1, direccion, telefono) VALUES (?,?,?,?,?,?,?); "),
     MODIFICAR("UPDATE usuario SET apellidos=?, nombre=? WHERE id=?; "),
     EXCLUIR("DELETE FROM usuario WHERE id=?; "),
     CONSULTAR("SELECT id, tipo, password, nombre, apellido1, direccion, telefono FROM usuario WHERE id=?; "),
