@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ServicioUsuario {
@@ -70,7 +72,36 @@ public class ServicioUsuario {
         }
         return r;
     }
-
+    
+    public void ingresarUsuario(String id, String  tipo, String  password, String  nombre, String  apellido1, String  direccion, String  telefono){
+        
+        try (Connection cnx = obtenerConexion();
+                PreparedStatement stm = cnx.prepareStatement(IMEC_Usuario.INSERTAR.obtenerComando());) {       
+                stm.clearParameters();
+                stm.setString(1, id);
+                stm.setString(2, tipo);
+                stm.setString(3, password);
+                stm.setString(4, nombre);
+                stm.setString(5, apellido1);
+                stm.setString(6, direccion);
+                stm.setString(7, telefono);
+                
+                 try (ResultSet rs = stm.executeQuery()){}
+        }   
+        
+        catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServicioUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ServicioUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(ServicioUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ServicioUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public Connection obtenerConexion() throws
             ClassNotFoundException,
             IllegalAccessException,
