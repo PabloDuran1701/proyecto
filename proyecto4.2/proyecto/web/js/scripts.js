@@ -31,13 +31,14 @@ function inicializarDatos(nuevosDatos) {
 
 function actualizarTabla() {
     var pizzas = menu["lista-pizzas"];
-    var tblBody = document.getElementById("menu1");
+    var tblBody = document.getElementById("cuerpo");
     pizzas.forEach(
             function (pizza, i)
        {
                 var hilera = document.createElement("tr");
+                
                 var celda = document.createElement("td");
-                var textoCelda = document.createTextNode(pizza.id);
+                var textoCelda = document.createTextNode(" ");
                
                 var celda2 = document.createElement("td");
                 var textoCelda2 = document.createTextNode(pizza.nombre);
@@ -47,16 +48,26 @@ function actualizarTabla() {
                
                 var celda4 = document.createElement("td");
                 var textoCelda4 = document.createTextNode(pizza.precio);
+                
+                var celda5 = document.createElement("td");
+                var textoCelda5 = document.createTextNode(" ");
+                
+
                
                
                 celda.appendChild(textoCelda);
                 hilera.appendChild(celda);
-                celda.appendChild(textoCelda2);
+                celda2.appendChild(textoCelda2);
                 hilera.appendChild(celda2);
-                celda.appendChild(textoCelda3);
+                celda3.appendChild(textoCelda3);
                 hilera.appendChild(celda3);
-                celda.appendChild(textoCelda4);
+                celda4.appendChild(textoCelda4);
                 hilera.appendChild(celda4);
+                celda5.appendChild(textoCelda5);
+                hilera.appendChild(celda5);
+
+                
+                
                 tblBody.appendChild(hilera);
             }
     );
