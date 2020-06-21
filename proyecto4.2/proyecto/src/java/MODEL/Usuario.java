@@ -8,7 +8,6 @@ package MODEL;
 import daos.ServicioUsuario;
 import org.json.JSONObject;
 
-
 // ingresoUsuario.jsp
 //
 // EIF209 - Programación 4 – Proyecto #2
@@ -18,8 +17,8 @@ import org.json.JSONObject;
 // - 304990923 Jose Pablo Duran
 // - 116350565 Diego Pinto Gomez 
 // 
-
 public class Usuario {
+
     String ID;
     String tipo;
     String Password;
@@ -101,8 +100,8 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "ID=" + ID + ", tipo=" + tipo + ", Password=" + Password + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", telefono=" + telefono + '}';
     }
-    
-        public JSONObject toJSON() {
+
+    public JSONObject toJSON() {
         JSONObject r = new JSONObject();
         r.put("id", getID());
         r.put("tipo", getNombre());
@@ -111,17 +110,9 @@ public class Usuario {
         r.put("apellido", getApellido());
         r.put("direccion", getDireccion());
         r.put("telefono", this.getTelefono());
-        
+
         return r;
     }
-        
-        
-        public String listaProductoJSON() {
-        ServicioUsuario g = new ServicioUsuario();
-        ListaProducto producto = new ListaProducto(g.obtenerListaEstudiantes());
-        return producto.toString();
-    }
-    
-    
-    
+
 }
+

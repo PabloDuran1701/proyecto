@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public class ServicioUsuario {
 
-    public Optional<Usuario> obtenerEstudiante(String id) {
+    public Optional<Usuario> obtenerUsuario(String id) {
         Optional<Usuario> r = Optional.empty();
         try (Connection cnx = obtenerConexion();
                 PreparedStatement stm = cnx.prepareStatement(IMEC_Usuario.CONSULTAR.obtenerComando());) {

@@ -47,11 +47,11 @@ public class Inicio extends HttpServlet {
             throws ServletException, IOException, SQLException {
         String cedula = request.getParameter("Cedula");
         String contra = request.getParameter("Contra");
-        
+        ServicioUsuario su=new ServicioUsuario();
        
         
         
-        Usuario us = new ServicioUsuario().obtenerEstudiante(cedula).get();
+        Usuario us = su.obtenerUsuario(cedula).get();
         if (us != null) {
             request.getSession(true).setAttribute("usuarioSesion", us);
             request.getRequestDispatcher("/presentation/CrudMenu.jsp").forward(request, response);
