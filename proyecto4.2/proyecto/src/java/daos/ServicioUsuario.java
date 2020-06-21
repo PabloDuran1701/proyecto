@@ -86,7 +86,8 @@ public class ServicioUsuario {
                 stm.setString(6, direccion);
                 stm.setString(7, telefono);
                 
-                 try (ResultSet rs = stm.executeQuery()){}
+                stm.executeUpdate();
+                 
         }   
         
         catch (ClassNotFoundException ex) {
