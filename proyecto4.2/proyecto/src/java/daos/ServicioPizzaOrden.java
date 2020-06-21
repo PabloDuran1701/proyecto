@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ServicioPizzaOrden {
@@ -88,4 +90,32 @@ public class ServicioPizzaOrden {
         }
     }
 */
+    
+    
+     public void ingresarPizzaOrden(int orden,int pizza,int cantidad){
+        
+        try (Connection cnx = obtenerConexion();
+                PreparedStatement stm = cnx.prepareStatement(IMEC_Usuario.INSERTAR.obtenerComando());) {       
+                stm.clearParameters();
+                stm.setInt(1, orden);
+                stm.setInt(2, pizza);
+                stm.setInt(3, cantidad);
+                
+                 try (ResultSet rs = stm.executeQuery()){}
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServicioPizzaOrden.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ServicioPizzaOrden.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(ServicioPizzaOrden.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ServicioPizzaOrden.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioPizzaOrden.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        
+      
+    }
+    
+    
 }
