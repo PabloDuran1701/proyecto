@@ -23,61 +23,23 @@ public class orden {
     int ID;
     Date fecha; 
     String estado;
-    Usuario USU;
-    List<Pizza> pizza;
-    List <Producto> producto;
-    List <Ingredientes> ingredientes;
+    int usuario;
 
-    public orden(int ID, Date fecha, String estado, Usuario USU) {
+  
+    public orden(int ID, Date fecha, String estado, int USU) {
         this.ID = ID;
         this.fecha = fecha;
         this.estado = estado;
-        this.USU = USU;
+        this.usuario = USU;
  
     }
-
-    public orden(int ID, Date fecha, String estado, Usuario USU, List<Pizza> pizza, List<Producto> producto, List<Ingredientes> ingredientes) {
-        this.ID = ID;
+    public orden(Date fecha, String estado, int USU) {
         this.fecha = fecha;
         this.estado = estado;
-        this.USU = USU;
-        this.pizza = pizza;
-        this.producto = producto;
-        this.ingredientes = ingredientes;
+        this.usuario = USU;
     }
 
-    public orden(Date fecha, String estado, Usuario USU, List<Pizza> pizza, List<Producto> producto, List<Ingredientes> ingredientes) {
-        this.fecha = fecha;
-        this.estado = estado;
-        this.USU = USU;
-        this.pizza = pizza;
-        this.producto = producto;
-        this.ingredientes = ingredientes;
-    }
-
-    public List<Pizza> getPizza() {
-        return pizza;
-    }
-
-    public List<Producto> getProducto() {
-        return producto;
-    }
-
-    public List<Ingredientes> getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setPizza(List<Pizza> pizza) {
-        this.pizza = pizza;
-    }
-
-    public void setProducto(List<Producto> producto) {
-        this.producto = producto;
-    }
-
-    public void setIngredientes(List<Ingredientes> ingredientes) {
-        this.ingredientes = ingredientes;
-    }
+   
     
     public int getID() {
         return ID;
@@ -91,8 +53,8 @@ public class orden {
         return estado;
     }
 
-    public Usuario getUSU() {
-        return USU;
+    public int getUSU() {
+        return usuario;
     }
 
     public void setID(int ID) {
@@ -107,14 +69,12 @@ public class orden {
         this.estado = estado;
     }
 
-    public void setUSU(Usuario USU) {
-        this.USU = USU;
+    public void setUSU(int USU) {
+        this.usuario = USU;
     }
 
     @Override
     public String toString() {
-        return "orden{" + "ID=" + ID + ", fecha=" + fecha + ", estado=" + estado + ", USU=" + USU + ", pizza=" + pizza + ", producto=" + producto + ", ingredientes=" + ingredientes + '}';
+        return "orden{" + "ID=" + ID + ", fecha=" + fecha + ", estado=" + estado + ", usuario=" + usuario + '}';
     }
-
- 
 }
