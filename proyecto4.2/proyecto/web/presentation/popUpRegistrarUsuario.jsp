@@ -5,7 +5,7 @@
 --%>
 
 <div class="container container-fluid" id="containerCrearEncuesta">
-    <form action="${pageContext.request.contextPath}/newUser" method="post">
+    <form action="newUser" method="post">
         <div class="modal fade" id="registrarUser" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -22,7 +22,12 @@
                         <div class="text-center border border-light p-5 " >
 
 
-
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <!-- Last name -->
+                                    <input type="text" id="defaultRegisterFormLastId" class="form-control"  name="idUsuario" placeholder="Identificacion" required>
+                                </div>
+                            </div>
                             <div class="form-row mb-4">
                                 <div class="col">
                                     <!-- First name -->
@@ -30,44 +35,22 @@
                                 </div>
                                 <div class="col">
                                     <!-- Last name -->
-                                    <input type="text" id="defaultRegisterFormLastName1"  name="apellido1Usuario" class="form-control" placeholder="Primer Apellido" required>
+                                    <input type="text" id="defaultRegisterFormLastName1"  name="apellidoUsuario" class="form-control" placeholder="Apellidos" required>
                                 </div>
                             </div>
-                            <div class="form-row mb-4">
-                                <div class="col">
-                                    <!-- First name -->
-                                    <input type="text" id="defaultRegisterFormlastName2"   name="apellido2Usuario" class="form-control" placeholder="Segundo Apellido" required>
-                                </div>
-                                <div class="col">
-                                    <!-- Last name -->
-                                    <input type="text" id="defaultRegisterFormLastId" class="form-control"  name="idUsuario" placeholder="Identificacion" required>
-                                </div>
-                            </div>
-                            <!-- E-mail -->
-                            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Correo"  name="correoUsuario" required >
 
-
+                            <!--Direccion -->
+                            <input type="text" id="defaultRegisterFormDireccion" class="form-control mb-4" placeholder="Direccion"  name="DireccionUsuario" required >
                             <div class="form-row mb-6">
                                 <div class="col">
 
                                     <!-- Phone number -->
-                                    <input type="text" id="defaultRegisterPhonePassword" class="form-control"  name="tel1Usuario" placeholder="Telefono Principal" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
+                                    <input type="text" id="defaultRegisterPhonePassword" class="form-control"  name="telUsuario" placeholder="Telefono" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
                                     <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
 
-                                    </small>
-                                </div>
-                                <div class="col">
-
-                                    <!-- Phone number -->
-                                    <input type="text" id="defaultRegisterPhonePassword2" class="form-control"  name="tel2Usuario" placeholder="Telefono/Otro" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                                    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                                        Este campo es opcional
                                     </small>
                                 </div>
                             </div>
-
-
-
                             <div class="form-row mb-6">
 
                                 <div class="col">
@@ -86,21 +69,11 @@
                                 </div>
 
                             </div>
-
-
-
-
-
-
-
-
-
-
                         </div>
                         <!-- Default form register -->
                     </div>
                     <div class="modal-footer">
-             
+
                         <button  class="btn-light text-left btn btn-primary " id="ButtonCrearEncuesta" onclick="espaciosEnBlanco()" type="submit" style="background-color: #ef384c; color: white">Registrar</button>
 
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -117,13 +90,12 @@
     </form>
 </div>
 <script language="javascript" type="text/javascript">
-   function espaciosEnBlanco(){
-       nombre = document.getElementById("defaultRegisterFormFirstName");
-       apellido1 = document.getElementById("defaultRegisterFormLastName1");
-       apellido2 = document.getElementById("defaultRegisterFormlastName2");
-       cedula = document.getElementById("defaultRegisterFormLastId");
-       correo = document.getElementById("defaultRegisterFormEmail");
-       contra1 = document.getElementById("contrasena1Usuario");
+    function espaciosEnBlanco() {
+        nombre = document.getElementById("defaultRegisterFormFirstName");
+        apellidos = document.getElementById("defaultRegisterFormLastName1");
+        cedula = document.getElementById("defaultRegisterFormLastId");
+        correo = document.getElementById("defaultRegisterFormEmail");
+        contra1 = document.getElementById("contrasena1Usuario");
         contra2 = document.getElementById("contrasena2Usuario");
         var aux = String(nombre.value);
         nombre.value = aux.replace(" ", "");
@@ -141,9 +113,9 @@
         contra2.value = aux.replace(" ", "");
         carga();
         verificarContrasena();
-   }
-    
-    
+    }
+
+
     function Solo_Numerico(variable) {
         Numer = parseInt(variable);
         if (isNaN(Numer)) {
@@ -208,34 +180,7 @@
             cancelaCarga();
         }
     }
-    function verEmail() {
-        var campoE = document.getElementById("defaultRegisterFormEmail");
-        var cam = String(campoE.value);
-        var a = true;
-        var e = cam.length - 1;
-        var o = true;
-        if (e !== 0) {
-            while (a) {
-                var i = cam.charAt(e);
-                e--;
-                if (e > 0 && i !== "@") {
-                    if (i === ".") {
-                        a = false;
-                        i = cam.charAt(e);
-                        if (i !== "@") {
-                            o = false;
-                        }
-                    }
-                } else {
-                    a = false;
-                }
-            }
-        }
-        if (o) {
-            campoE.value = "";
-            cancelaCarga();
-        }
-    }
+
 
     function numeroT() {
         var campT1 = document.getElementById("defaultRegisterPhonePassword");
@@ -259,7 +204,7 @@
         if (sCamp.length === 9) {
             if (sCamp.charAt(0) === "a" || sCamp.charAt(0) === "A" || sCamp.charAt(0) === "1" || sCamp.charAt(0) === "2" || sCamp.charAt(0) === "3" || sCamp.charAt(0) === "4" || sCamp.charAt(0) === "5" ||
                     sCamp.charAt(0) === "6" || sCamp.charAt(0) === "7" || sCamp.charAt(0) === "8" || sCamp.charAt(0) === "9") {
-                if(sCamp.charAt(0) === "a"){
+                if (sCamp.charAt(0) === "a") {
                     sCamp = sCamp.replace("a", "A");
                     campId.value = sCamp;
                 }
