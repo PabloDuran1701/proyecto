@@ -6,9 +6,12 @@
 package MODEL;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
@@ -17,11 +20,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "lista-usuario")
 public class ListaUsuario implements Serializable{
 
-     @XmlElement(name = "producto")
-    private final List<Producto> Productos;
+     @XmlElement(name = "usuario")
+    private final List<Usuario> Usuarios;
     
-     public ListaProducto() {
-        Productos = new ArrayList<>();
+     public ListaUsuario() {
+        Usuarios = new ArrayList<>();
     }
      
          @Override
@@ -31,7 +34,7 @@ public class ListaUsuario implements Serializable{
     
         public JSONObject toJSON() {
         JSONArray a = new JSONArray();
-        Productos.forEach((p) -> {
+        Usuarios.forEach((p) -> {
             a.put(p.toJSON());
         });
 
@@ -40,7 +43,7 @@ public class ListaUsuario implements Serializable{
         return r;
     }
 
-    public ListaProducto(List<Producto> Productos) {
-        this.Productos = Productos;
+    public ListaUsuario(List<Usuario> Usuarios) {
+        this.Usuarios = Usuarios;
     }
 }
