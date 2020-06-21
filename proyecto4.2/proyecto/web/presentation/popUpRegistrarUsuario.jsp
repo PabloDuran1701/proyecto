@@ -40,7 +40,7 @@
                             </div>
 
                             <!--Direccion -->
-                            <input type="text" id="defaultRegisterFormDireccion" class="form-control mb-4" placeholder="Direccion"  name="DireccionUsuario" required >
+                            <input type="text" id="defaultRegisterFormDireccion" class="form-control mb-4" placeholder="Direccion"  name="Direccion" required >
                             <div class="form-row mb-6">
                                 <div class="col">
 

@@ -61,7 +61,7 @@ public class Inicio extends HttpServlet {
             request.getRequestDispatcher("/presentation/CrudMenu.jsp").forward(request, response);
 
         } else {
-            request.getRequestDispatcher("/presentation/Principal.jsp").forward(request, response);
+            request.getRequestDispatcher("/presentation/Login.jsp").forward(request, response);
 
         }
     }
@@ -79,11 +79,10 @@ public class Inicio extends HttpServlet {
             Usuario newUser = new Usuario(id, "cliente", password, nombre, apellidos, direccion, tel);
             Usuario u = (Usuario) request.getSession().getAttribute("usuarioSesion");
             ServicioUsuario su = new ServicioUsuario();
-           
-
-            request.getRequestDispatcher("/presentation/Principal.jsp").forward(request, response);
+           su.ingresarUsuario(id, "Cliente", password, nombre, apellidos, direccion, tel);
+            request.getRequestDispatcher("/presentation/CrudMenu.jsp").forward(request, response);
         } catch (Exception e) {
-            request.getRequestDispatcher("/presentation/Principal.jsp").forward(request, response);
+            request.getRequestDispatcher("/presentation/Login.jsp").forward(request, response);
         }
 
     }
