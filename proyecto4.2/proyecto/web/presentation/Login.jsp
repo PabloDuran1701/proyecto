@@ -36,7 +36,6 @@
                             <button class="btn btn-primary btn-block" style="background-color: #ef384c" type="submit">Ingresar</button>
                         </div>
                         <div class="form-group">
-
                             <button data-toggle="modal"   type="button" data-target="#registrarUser"  class="btn btn-primary btn-block" style="background-color: #ef384c" >Registrarme</button>
                         </div>
                     </form>
