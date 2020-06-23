@@ -23,17 +23,17 @@ public class orden {
     int ID;
     Date fecha; 
     String estado;
-    int usuario;
+    String usuario;
 
   
-    public orden(int ID, Date fecha, String estado, int USU) {
+    public orden(int ID, Date fecha, String estado, String USU) {
         this.ID = ID;
         this.fecha = fecha;
         this.estado = estado;
         this.usuario = USU;
  
     }
-    public orden(Date fecha, String estado, int USU) {
+    public orden(Date fecha, String estado, String USU) {
         this.fecha = fecha;
         this.estado = estado;
         this.usuario = USU;
@@ -53,7 +53,7 @@ public class orden {
         return estado;
     }
 
-    public int getUSU() {
+    public String getUSU() {
         return usuario;
     }
 
@@ -69,7 +69,7 @@ public class orden {
         this.estado = estado;
     }
 
-    public void setUSU(int USU) {
+    public void setUSU(String USU) {
         this.usuario = USU;
     }
 
