@@ -1,7 +1,13 @@
-<%-- 
-    Document   : Carrito
-    Created on : 22/06/2020, 09:27:25 PM
-    Author     : Lenovo
+<%--
+// Carrito.jsp
+//
+// EIF209 - Programación 4 – Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez
+//
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,4 +1,16 @@
 
+<%--
+// Script.js
+//
+// EIF209 - Programación 4 – Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez
+//
+--%>
+
 var catalogo = null; // Mantiene el inventario de productos disponible.
 var productoSeleccionado = null;
 var tablaproducto = [];

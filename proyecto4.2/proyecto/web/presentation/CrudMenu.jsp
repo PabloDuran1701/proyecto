@@ -1,7 +1,13 @@
 <%-- 
-    Document   : CrudMenu
-    Created on : 19/06/2020, 08:19:02 PM
-    Author     : Lenovo
+// CrudMenu.jsp
+//
+// EIF209 - Programación 4 – Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez
+//
 --%>
 
 

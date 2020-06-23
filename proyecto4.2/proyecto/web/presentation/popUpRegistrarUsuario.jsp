@@ -1,7 +1,13 @@
 <%-- 
-    Document   : popUpRegistrarUsuario
-    Created on : 25/03/2020, 05:00:25 PM
-    Author     : Chris
+// popUpRegistrarUsuario.jsp
+//
+// EIF209 - Programación 4 ? Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez
+//
 --%>
 
 <div class="container container-fluid" id="containerCrearEncuesta">

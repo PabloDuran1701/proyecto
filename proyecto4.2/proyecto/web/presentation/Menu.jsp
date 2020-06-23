@@ -1,3 +1,16 @@
+<%-- 
+// Menu.jsp
+//
+// EIF209 - Programación 4 ? Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez
+//
+--%>
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <%@include file="../presentation/popUpRegistrarUsuario.jsp" %>
     <a class="navbar-brand" href="#">Carrito</a>

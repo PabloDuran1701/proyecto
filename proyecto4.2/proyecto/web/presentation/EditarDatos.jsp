@@ -1,7 +1,13 @@
 <%-- 
-    Document   : EditarDatos
-    Created on : 17/06/2020, 10:06:35 PM
-    Author     : Lenovo
+// EditarDatos.jsp
+//
+// EIF209 - Programación 4 – Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez
+//
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

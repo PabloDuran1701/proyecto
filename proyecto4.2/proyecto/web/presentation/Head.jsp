@@ -1,3 +1,15 @@
+<%-- 
+// Head.jsp
+//
+// EIF209 - Programación 4 ? Proyecto #2
+// Junio 2020
+//
+// Autores:
+// - 304990923 Jose Pablo Duran
+// - 116350565 Diego Pinto Gomez
+//
+--%>
+
 <base href="http://localhost:8080"> 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/fonts/font-awesome.min.css">
