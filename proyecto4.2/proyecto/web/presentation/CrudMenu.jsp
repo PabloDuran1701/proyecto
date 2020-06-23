@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <%@include file="../presentation/Head.jsp"%>
-        <script src="js/scripts.js" type="text/javascript"></script>
+        <script src="../js/scripts.js" type="text/javascript"></script>
         <script type="text/javascript">
             inicializarDatos(<%= new Pizza().listaPizzasJSON()%>);
         </script>

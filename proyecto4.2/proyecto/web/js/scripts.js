@@ -1,7 +1,7 @@
 
 var catalogo = null; // Mantiene el inventario de productos disponible.
 var productoSeleccionado = null;
-var tablaFactura = [];
+var tablaproducto = [];
 
 var menu = null;
 
@@ -29,32 +29,34 @@ function inicializarDatos(nuevosDatos) {
 }
 
 
+
+
 function actualizarTabla() {
     var pizzas = menu["lista-pizzas"];
     var tblBody = document.getElementById("cuerpo");
     pizzas.forEach(
             function (pizza, i)
-       {
+            {
                 var hilera = document.createElement("tr");
-                
+
                 var celda = document.createElement("td");
                 var textoCelda = document.createTextNode(" ");
-               
+
                 var celda2 = document.createElement("td");
                 var textoCelda2 = document.createTextNode(pizza.nombre);
-               
+
                 var celda3 = document.createElement("td");
                 var textoCelda3 = document.createTextNode(pizza.tamano);
-               
+
                 var celda4 = document.createElement("td");
                 var textoCelda4 = document.createTextNode(pizza.precio);
-                
-                var celda5 = document.createElement("td");
-                var textoCelda5 = document.createTextNode(" ");
-                
 
-               
-               
+                var celda5 = document.createElement("td");
+
+                var btn = document.createElement("BUTTON");
+                btn.className = "btn";
+                btn.innerHTML = "<i class='material-icons' onclick='agregar(" + pizza.id + ");'>delete</i>";
+
                 celda.appendChild(textoCelda);
                 hilera.appendChild(celda);
                 celda2.appendChild(textoCelda2);
@@ -63,17 +65,106 @@ function actualizarTabla() {
                 hilera.appendChild(celda3);
                 celda4.appendChild(textoCelda4);
                 hilera.appendChild(celda4);
-                celda5.appendChild(textoCelda5);
+                celda5.appendChild(btn);
                 hilera.appendChild(celda5);
 
-                
-                
+
+
                 tblBody.appendChild(hilera);
             }
     );
 
-
 }
+
+
+function agregar(id) {
+
+    var datospizza = {
+        codigo: id,
+        cantidad: 1,
+    };
+
+
+    var bandera = true;
+    tablaproducto.forEach(
+            function (item, i) {
+
+                if (item.codigo == id) {
+                    item.cantidad = item.cantidad + 1;
+                    bandera = false;
+                }
+            }
+    );
+    if (bandera) {
+        tablaproducto.push(datospizza);
+    }
+
+    console.log("Agregando producto: " + JSON.stringify(tablaproducto));
+
+//        // Se agrega una fila a la tabla con la información del nuevo producto
+//        // seleccionado, y se recalculan los totales de la factura.
+//
+//        var indice = refTabla.rows.length;
+//        var nuevaFila = refTabla.insertRow(-1);
+//        var nuevaCelda;
+//
+//        nuevaCelda = nuevaFila.insertCell(-1);
+//        nuevaCelda.innerText = nuevoProducto.codigo;
+//        nuevaCelda = nuevaFila.insertCell(-1);
+//        nuevaCelda.innerText = nuevoProducto["descripción"];
+//
+//        nuevaCelda = nuevaFila.insertCell(-1);
+//        nuevaCelda.className = "c2";
+//        nuevaCelda.innerText = formatoMoneda(datosProducto.precio);
+//
+//        // La cantidad del producto se muestra en un campo editable.
+//        // El atributo 'indice' sirve para identificar a cuál
+//        // producto se refiere el campo, por medio de la posición
+//        // en la tabla de productos.
+//
+//        nuevaCelda = nuevaFila.insertCell(-1);
+//        var campo = document.createElement("INPUT");
+//
+//        campo.setAttribute("type", "number");
+//        campo.setAttribute("min", 0.0);
+//        campo.setAttribute("max", 1000.0);
+//
+//        campo.setAttribute("indice", indice);
+//        campo.value = datosProducto.cantidad;
+//        campo.onchange = actualizarCampo;
+//        nuevaCelda.appendChild(campo);
+//
+//        // El valor del subtotal debe tener un atributo 'id', para poder
+//        // referenciarlo cuando se actualiza la cantidad.
+//
+//        nuevaCelda = nuevaFila.insertCell(-1);
+//        nuevaCelda.id = "total" + String(indice);
+//        nuevaCelda.className = "c2";
+//        nuevaCelda.innerText = formatoMoneda(datosProducto.subtotal);
+//
+//        // Por último, se coloca un botón para indicar cuando una fila
+//        // debe eliminarse. Observe que el atributo 'indice' es asignado
+//        // al botón, pero el evento es manejado por el icono asignado.
+//
+//        nuevaCelda = nuevaFila.insertCell(-1);
+//        nuevaCelda.className = "c3";
+//
+//        var btn = document.createElement("BUTTON");
+//        btn.className = "btn";
+//        btn.setAttribute("indice", indice);
+//        btn.innerHTML = "<i class='material-icons' onclick='eliminarFila();'>delete</i>";
+//
+//        nuevaCelda.appendChild(btn);
+//
+//        // Ya se ha incluido el producto, por lo que hay que recalcular
+//        // los subtotales y el total general.
+//
+//        actualizarTabla();
+//
+//        actualizarMenu();
+//        actualizarCodigo();
+}
+
 
 
 function Enviar() {
