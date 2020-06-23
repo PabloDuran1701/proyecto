@@ -1,9 +1,5 @@
 package daos;
 
-import MODEL.Ingredientes;
-import MODEL.Pizza;
-import MODEL.Producto;
-import MODEL.Usuario;
 import MODEL.orden;
 import ejemplo.datos.BaseDatos;
 import java.io.IOException;
@@ -19,27 +15,22 @@ import java.util.Optional;
 
 public class ServicioOrden {
 
-    public Optional<orden> obtenerOrden(String id) {
+     public Optional<orden> obtenerAdicionales(int ingre, int pizza, int orden) {
         Optional<orden> r = Optional.empty();
-        ServicioUsuario US = new ServicioUsuario();
-        List<Pizza> pizza = new ArrayList();
-        List <Producto> producto = new ArrayList();;
-        List <Ingredientes> ingredientes = new ArrayList();;
         try (Connection cnx = obtenerConexion();
                 PreparedStatement stm = cnx.prepareStatement(IMEC_Orden.CONSULTAR.obtenerComando());) {
-            stm.clearParameters();
-            stm.setString(1, id);
-            
+                stm.clearParameters();
+                stm.setInt(1, ingre);
+                stm.setInt(2, pizza);
+                stm.setInt(3, orden);
             try (ResultSet rs = stm.executeQuery()) {
-                Optional<Usuario> us = US.obtenerEstudiante(rs.getString("usuario"));    
                 if (rs.next()) {
                     r = Optional.of(new orden(
                             rs.getInt("id"),
                             rs.getDate("fecha"),
                             rs.getString("estado"),
-                            us.get()
-                    )
-                    );
+                            rs.getString("usuario")
+                    ));
                 }
             }
         } catch (IOException

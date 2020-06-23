@@ -92,7 +92,7 @@ public class Producto {
     
         public String listaProductoJSON() {
         ServicioProducto g = new ServicioProducto();
-        ListaProducto producto = new ListaProducto(g.obtenerListaEstudiantes());
+        ListaProducto producto = new ListaProducto(g.obtenerListaProducto());
         return producto.toString();
     }
    

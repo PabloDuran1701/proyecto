@@ -4,7 +4,7 @@ public enum IMEC_Adicionales {
     INSERTAR("INSERT INTO adicionales (ingredientes,pizza,orden) VALUES (?, ?, ?); "),
     MODIFICAR("UPDATE adicionales SET ingredientes=? WHERE pizza=?; "),
     EXCLUIR("DELETE FROM adicionales WHERE pizza=? and ingredietnes =? ; "),
-    //CONSULTAR("SELECT id, apellidos, nombre FROM estudiante WHERE id=?; "),
+    CONSULTAR("SELECT ingredientes,pizza,orden FROM estudiante WHERE ingredientes= ?,pizza= ? ,orden= ?; "),
     LISTAR("select ID, nombre, precio from ingredientes }"
             + "where ID IN(\n" +
             "select ingredientes from adicionales \n" +

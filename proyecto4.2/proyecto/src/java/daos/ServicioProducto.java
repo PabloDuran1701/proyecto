@@ -11,11 +11,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ServicioProducto {
 
-    public Optional<Producto> obtenerEstudiante(String id) {
+    public Optional<Producto> obtenerProducto(String id) {
         Optional<Producto> r = Optional.empty();
         try (Connection cnx = obtenerConexion();
                 PreparedStatement stm = cnx.prepareStatement(IMEC_Producto.CONSULTAR.obtenerComando());) {
@@ -41,7 +43,7 @@ public class ServicioProducto {
         return r;
     }
 
-    public List<Producto> obtenerListaEstudiantes() {
+    public List<Producto> obtenerListaProducto() {
         List<Producto> r = new ArrayList<>();
         try (Connection cnx = obtenerConexion();
                 Statement stm = cnx.createStatement();
@@ -78,11 +80,39 @@ public class ServicioProducto {
 
     public static void main(String[] args) {
         ServicioProducto se = new ServicioProducto();
-        List<Producto> estudiantes = se.obtenerListaEstudiantes();
+        List<Producto> estudiantes = se.obtenerListaProducto();
         int i = 0;
         for (Producto e : estudiantes) {
             System.out.printf("%4d: %s,%n", ++i, e);
         }
+    }
+    
+    
+     public void ingresarProducto(Producto pro){
+        
+         
+        try (Connection cnx = obtenerConexion();
+                PreparedStatement stm = cnx.prepareStatement(IMEC_Producto.INSERTAR.obtenerComando());) {       
+                stm.clearParameters();
+                stm.setInt(1, pro.getID());
+                stm.setString(2, pro.getNombre());
+                stm.setInt(3, pro.getPrecio());
+                stm.setString(4, pro.getDescripcion());
+                
+                stm.executeUpdate();
+                 
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServicioProducto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ServicioProducto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(ServicioProducto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ServicioProducto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+
     }
 
 }

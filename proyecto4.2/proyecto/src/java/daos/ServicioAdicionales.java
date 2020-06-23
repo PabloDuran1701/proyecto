@@ -1,6 +1,6 @@
 package daos;
 
-import MODEL.Ingredientes;
+import MODEL.Adicionales;
 import ejemplo.datos.BaseDatos;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,22 +11,26 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ServicioAdicionales {
-/*
-    public Optional<Ingredientes> obtenerEstudiante(String id) {
-        Optional<Ingredientes> r = Optional.empty();
+
+    public Optional<Adicionales> obtenerAdicionales(int ingre, int pizza, int orden) {
+        Optional<Adicionales> r = Optional.empty();
         try (Connection cnx = obtenerConexion();
                 PreparedStatement stm = cnx.prepareStatement(IMEC_Adicionales.CONSULTAR.obtenerComando());) {
                 stm.clearParameters();
-                stm.setString(1, id);
+                stm.setInt(1, ingre);
+                stm.setInt(2, pizza);
+                stm.setInt(3, orden);
             try (ResultSet rs = stm.executeQuery()) {
                 if (rs.next()) {
-                    r = Optional.of(new Estudiante(
-                            rs.getString("id"),
-                            rs.getString("apellidos"),
-                            rs.getString("nombre")
+                    r = Optional.of(new Adicionales(
+                            rs.getInt("ingredientes"),
+                            rs.getInt("pizza"),
+                            rs.getInt("orden")
                     ));
                 }
             }
@@ -39,19 +43,19 @@ public class ServicioAdicionales {
         }
         return r;
     }
-*/
-    public List<Ingredientes> obtenerListaAdicioanles(int pi) {
-        List<Ingredientes> r = new ArrayList<>();
+
+    public List<Adicionales> obtenerListaAdicioanles(int pi) {
+        List<Adicionales> r = new ArrayList<>();
         try (Connection cnx = obtenerConexion();
                 PreparedStatement stm = cnx.prepareStatement(IMEC_Adicionales.LISTAR.obtenerComando())) {
                 stm.clearParameters();
                 stm.setInt(1, pi);
             try (ResultSet rs = stm.executeQuery()) {
             while (rs.next()) {
-                Ingredientes e = new Ingredientes(
-                        rs.getInt("ID"),
-                        rs.getString("nombre"),
-                        rs.getInt("precio")
+                Adicionales e = new Adicionales(
+                      rs.getInt("ingredientes"),
+                            rs.getInt("pizza"),
+                            rs.getInt("orden")
                 );
                 r.add(e);
             }
@@ -86,4 +90,32 @@ public class ServicioAdicionales {
         }
     }
 */
+    
+     public void ingresarAdicionales(Adicionales adi){
+        
+        try (Connection cnx = obtenerConexion();
+                PreparedStatement stm = cnx.prepareStatement(IMEC_Adicionales.INSERTAR.obtenerComando());) {       
+                stm.clearParameters();
+                stm.setInt(1, adi.getIngredientes());
+                stm.setInt(2, adi.getPizza());
+                stm.setInt(3, adi.getOrden());
+                
+                stm.executeUpdate();
+                 
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ServicioAdicionales.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(ServicioAdicionales.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(ServicioAdicionales.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ServicioAdicionales.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioAdicionales.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        
+      
+    }
+    
+    
 }
