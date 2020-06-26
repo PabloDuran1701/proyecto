@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/fonts/ionicons.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/fonts/ionicons.ttf">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/fonts/ionicons.woff">
-
+<link href="../css/estilo.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>

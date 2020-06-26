@@ -21,6 +21,9 @@ import org.json.JSONObject;
 // 
 
 public class Producto {
+
+    public Producto() {
+    }
  int ID;
  String Nombre;
  int precio;

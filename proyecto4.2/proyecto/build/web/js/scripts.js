@@ -1,5 +1,5 @@
 
-<%--
+<!--
 // Script.js
 //
 // EIF209 - Programación 4 – Proyecto #2
@@ -9,13 +9,14 @@
 // - 304990923 Jose Pablo Duran
 // - 116350565 Diego Pinto Gomez
 //
---%>
+-->
 
 var catalogo = null; // Mantiene el inventario de productos disponible.
 var productoSeleccionado = null;
 var tablaproducto = [];
 
 var menu = null;
+var productos=null;
 
 function init() {
 
@@ -25,6 +26,7 @@ function init() {
     // ejecutar cualquier otro código.
 
     actualizarTabla();
+    actualizarTablaP();
     console.log("Aplicación inicializada..");
 }
 
@@ -40,6 +42,10 @@ function inicializarDatos(nuevosDatos) {
     console.log("Datos cargados..");
 }
 
+function inicializarProductos(produc){
+productos=produc;
+}
+
 
 
 
@@ -51,23 +57,37 @@ function actualizarTabla() {
             {
                 var hilera = document.createElement("tr");
 
+ 
+
                 var celda = document.createElement("td");
                 var textoCelda = document.createTextNode(" ");
+
+ 
 
                 var celda2 = document.createElement("td");
                 var textoCelda2 = document.createTextNode(pizza.nombre);
 
+ 
+
                 var celda3 = document.createElement("td");
                 var textoCelda3 = document.createTextNode(pizza.tamano);
+
+ 
 
                 var celda4 = document.createElement("td");
                 var textoCelda4 = document.createTextNode(pizza.precio);
 
+ 
+
                 var celda5 = document.createElement("td");
+
+ 
 
                 var btn = document.createElement("BUTTON");
                 btn.className = "btn";
                 btn.innerHTML = "<i class='material-icons' onclick='agregar(" + pizza.id + ");'>delete</i>";
+
+ 
 
                 celda.appendChild(textoCelda);
                 hilera.appendChild(celda);
@@ -80,6 +100,41 @@ function actualizarTabla() {
                 celda5.appendChild(btn);
                 hilera.appendChild(celda5);
 
+                tblBody.appendChild(hilera);
+            }
+    );
+
+
+}
+
+function actualizarTablaP() {
+    var produc = productos["lista-productos"];
+    var tblBody = document.getElementById("cuerpoP");
+    produc.forEach(
+            function (pro, i)
+            {
+                var hilera = document.createElement("tr");
+                
+                var celda2 = document.createElement("td");
+                var textoCelda2 = document.createTextNode(pro.nombre);
+
+                var celda4 = document.createElement("td");
+                var textoCelda4 = document.createTextNode(pro.precio);
+
+                var celda5 = document.createElement("td");
+
+                var btn = document.createElement("BUTTON");
+                btn.className = "btn";
+                btn.innerHTML = "<i class='material-icons' onclick='agregar(" + pro.id + ");'>delete</i>";
+
+
+                celda2.appendChild(textoCelda2);
+                hilera.appendChild(celda2);
+                celda4.appendChild(textoCelda4);
+                hilera.appendChild(celda4);
+                celda5.appendChild(btn);
+                hilera.appendChild(celda5);
+
 
 
                 tblBody.appendChild(hilera);
@@ -87,6 +142,9 @@ function actualizarTabla() {
     );
 
 }
+
+
+
 
 
 function agregar(id) {

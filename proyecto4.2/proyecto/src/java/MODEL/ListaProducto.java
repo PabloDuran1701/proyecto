@@ -44,7 +44,7 @@ public class ListaProducto implements Serializable{
         });
 
         JSONObject r = new JSONObject();
-        r.put("lista-pizzas", a);
+        r.put("lista-productos", a);
         return r;
     }
 

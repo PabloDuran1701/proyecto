@@ -11,6 +11,7 @@
 --%>
 
 
+<%@page import="MODEL.Producto"%>
 <%@page import="MODEL.Pizza"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -23,24 +24,42 @@
         <script src="../js/scripts.js" type="text/javascript"></script>
         <script type="text/javascript">
             inicializarDatos(<%= new Pizza().listaPizzasJSON()%>);
+            inicializarProductos(<%= new Producto().listaProductoJSON()%>);
+
         </script>
     </head>
     <%@include file="../presentation/Menu.jsp"%>
     <body onload="init();">
-        <div class="" style="height: available; position: relative; margin-top: 20px;  margin-left: 40px; margin-right: 40px; margin-bottom: 100px; "> 
-            <table class="table table-bordered table-striped mb-1 " id="example"style="">
-                <thead>
-                    <tr style="">
-                        <th scope="col">Tipo</th>
-                        <th scope="col">tipo</th>
-                        <th scope="col">tamaño</th>
-                        <th scope="col">precio</th>
-                        <th scope="col">Agregar</th>
-                    </tr>
-                </thead>
-                <tbody id="cuerpo">
-                </tbody>
-            </table>
+        <div class="jumbotron big-banner mb-0 jumbotron-fluid" style="height: 100%; padding-top: 150px;">
+            <div class="" style="height: available; position: relative; margin-top: 20px;  margin-left: 15%; margin-right: 15%; margin-bottom: 100px; "> 
+                <table class="table table-bordered table-striped mb-1 table-light" id="example"style="">
+                    <thead>
+                        <tr style="">
+                            <th scope="col">Tipo</th>
+                            <th scope="col">tipo</th>
+                            <th scope="col">tamaño</th>
+                            <th scope="col">precio</th>
+                            <th scope="col">Agregar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="" style="height: available; position: relative; margin-top: 20px;  margin-left: 20%; margin-right: 20%; margin-bottom: 100px; "> 
+                <table class="table table-bordered table-striped mb-1 table-light" id="example"style="">
+                    <thead>
+                        <tr style="">
+                            <th scope="col">nombre</th>
+                            <th scope="col">precio</th>
+                            <th scope="col">Agregar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoP">
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 
