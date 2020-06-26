@@ -85,7 +85,7 @@ function actualizarTabla() {
 
                 var btn = document.createElement("BUTTON");
                 btn.className = "btn";
-                btn.innerHTML = "<i class='material-icons' onclick='agregar(" + pizza.id + ");'>delete</i>";
+                btn.innerHTML = "<i class='material-icons' onclick='agregarP(" + pizza.id + ");'>delete</i>";
 
  
 
@@ -147,11 +147,12 @@ function actualizarTablaP() {
 
 
 
-function agregar(id) {
+function agregarP(id) {
 
     var datospizza = {
         codigo: id,
         cantidad: 1,
+        Tipo: "pizza"
         
     };
 
