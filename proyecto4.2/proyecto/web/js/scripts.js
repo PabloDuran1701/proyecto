@@ -152,13 +152,13 @@ function agregar(id) {
     var datospizza = {
         codigo: id,
         cantidad: 1,
+        
     };
 
 
     var bandera = true;
     tablaproducto.forEach(
             function (item, i) {
-
                 if (item.codigo == id) {
                     item.cantidad = item.cantidad + 1;
                     bandera = false;
@@ -170,6 +170,7 @@ function agregar(id) {
     }
 
     console.log("Agregando producto: " + JSON.stringify(tablaproducto));
+    
 
 //        // Se agrega una fila a la tabla con la información del nuevo producto
 //        // seleccionado, y se recalculan los totales de la factura.
